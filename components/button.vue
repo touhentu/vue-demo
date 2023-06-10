@@ -1,7 +1,7 @@
 <template>
-    <button @click="handleClick" :style="styles">
-        <slot></slot>
-    </button>
+      <button @click="handleClick" :style="styles">
+          <slot></slot>
+      </button>
 </template>
 <script>
     export default {
@@ -20,7 +20,10 @@
         },
         methods: {
             handleClick (e) {
-                this.$emit('click', e);
+              this.$store.commit('increment', 10);
+              this.$store.dispatch('addItem').then(function (data) {
+                console.log(data)
+              });
             }
         }
     }
