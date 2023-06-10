@@ -3,6 +3,8 @@
 </template>
 <script>
   export default {
-
+    mounted () {
+      this.$bus.emit('view-mounted', 'about page');
+    }
   }
 </script>

@@ -28,6 +28,7 @@
       }
     },
     mounted () {
+      this.$bus.emit('view-mounted', 'index page');
     }
   }
 </script>

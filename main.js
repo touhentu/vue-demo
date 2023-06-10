@@ -2,9 +2,11 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Vuex from 'vuex'
 import App from './app.vue';
+import VueBus from './vue-bus';
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
+Vue.use(VueBus);
 
 const store = new Vuex.Store({
   modules: {
@@ -102,7 +104,12 @@ new Vue({
   render: h => {
       return h(App)
   },
-  mounted: function () {
+  created () {
+    this.$bus.on('view-mounted', function (tar) {
+      console.log(tar);
+    });
+  },
+  mounted () {
     console.log(this.$store.state.mod1.count)
     console.log(this.$store.getters.count)
   }
