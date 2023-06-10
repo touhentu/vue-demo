@@ -1,25 +1,25 @@
 <template>
-    <div>
-        <v-title title="Vue组件化"></v-title>
-        <v-button @click="handleClick">点击按钮</v-button>
-        <p>
-            <img src="./images/image.png" style="width: 200px;">
-        </p>
-    </div>
+  <div>
+    <ul>
+      <li>
+        <router-link to="/">index</router-link>
+      </li>
+      <li>
+        <router-link to="/about">about</router-link>
+      </li>
+      <li>
+        <router-link to="/user/1">user1 page</router-link>
+      </li>
+    </ul>
+    <router-view></router-view>
+  </div>
 </template>
 <script>
-    import vTitle from './title.vue';
-    import vButton from './button.vue';
-
-    export default {
-        components: {
-            vTitle,
-            vButton
-        },
-        methods: {
-            handleClick (e) {
-                console.log(e);
-            }
-        }
-    }
+  export default {
+  }
 </script>
+<style scoped>
+  ul{list-style-type:none;padding:0;margin:0;border:1px slid #ccc;}  
+  ul li{display:inline-block;padding:4px 6px;font-size:1.5em;}  
+  ul li a:hover {color:#f60;}
+</style>
